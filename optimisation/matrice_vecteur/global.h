@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define N 30
+#define N 5
 #define NTEST 1000
 #define NSAMPLE 30
 #define NWARMUP 300

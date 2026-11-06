@@ -89,3 +89,24 @@ void display_matrix_uint64(uint64_t* matrice)
         }
     }
 }
+
+/*
+Fonction pour afficher une matrice de taille N * N, tableau de tableau
+*/
+void display_matrix_2(int64_t** matrice)
+{
+    if(N <= 10)
+    {
+        // Affichage des valeurs
+        for(int i = 0; i < N; i++)
+        {
+            printf("Ligne %d:\n", i + 1);
+            for(int j = 0; j < N; j++)
+            {
+                printf("%" PRIu64 " ", matrice[i][j]);
+            }
+
+            printf("\n");
+        }
+    }
+}

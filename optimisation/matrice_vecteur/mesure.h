@@ -2,7 +2,7 @@
 #define MESURE_H
 
 #include "global.h"
-#include "/home/etudiants/nalimous232/M2/calcul_parallele/optimisation/mesure_perf/Ressources/ccount.h"
+#include "ccount.h"
 #include "calcul.h"
 
 double mesure_vec_mat(int64_t* vecteur, int64_t* matrice);

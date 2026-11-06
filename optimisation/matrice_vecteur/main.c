@@ -15,6 +15,9 @@ int main()
     int64_t* matrice1 = NULL;
     int64_t* matrice2 = NULL;
 
+    float* vec = NULL;
+    int64_t** mat = NULL;
+
     // Vérification des allocations
     vecteur = gen_vector_rand();
 
@@ -37,6 +40,14 @@ int main()
     if(matrice2 == NULL) 
     {
         fprintf(stderr, "Erreur d'allocation mémoire pour matrice2\n");
+        return 1;
+    }
+
+    mat = gen_matrix_rand_2();
+
+    if(mat == NULL)
+    {
+        fprintf(stderr, "Erreur d'allocation mémoire pour mat\n");
         return 1;
     }
 
@@ -70,8 +81,13 @@ int main()
 
     printf("Matrice * Matrice : %.2f cycles en moyenne\n", cycles_mat_mat);
 
+    vec = comp_vec_mat_2(vecteur, mat);
+    display_vector_float(vec);
+
     // Désallocation mémoire
     free(vecteur);
     free(matrice1);
     free(matrice2);
+    free(vec);
+    free(mat);
 }

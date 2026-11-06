@@ -35,7 +35,7 @@ int64_t* gen_vector_rand()
 }
 
 /*
-Fonction pour générer une matrice carré aléatoire de type int64_t
+Fonction pour générer une matrice carré aléatoire de type int64_t, tableau
 */
 int64_t* gen_matrix_rand()
 {
@@ -53,6 +53,32 @@ int64_t* gen_matrix_rand()
         {
             int64_t nb_alea = random_int64_posix();
             matrice[i * N + j] = nb_alea;
+        }
+    }
+
+    return matrice;
+}
+
+/*
+Fonction pour générer une matrice carré aléatoire de type int64_t, tableau de tableau
+*/
+int64_t** gen_matrix_rand_2()
+{
+    // Allocation dynamique de la matrice
+    int64_t** matrice = (int64_t**)malloc(sizeof(int64_t*) * N);
+
+    // Vérification de la variable matrice
+    if(matrice == NULL)
+        return NULL;
+
+    // Génération aléatoire des valeurs de la matrice
+    for(int i = 0; i < N; i++)
+    {
+        matrice[i] = (int64_t*)malloc(sizeof(int64_t) * N);
+        for(int j = 0; j < N; j++)
+        {
+            int64_t nb_alea = random_int64_posix();
+            matrice[i][j] = nb_alea;
         }
     }
 

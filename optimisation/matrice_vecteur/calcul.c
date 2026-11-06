@@ -26,6 +26,31 @@ float* comp_vec_mat(int64_t* vecteur, int64_t* matrice)
 }
 
 /*
+Fonction pour calculer vecteur * Matrice, avec une matrice tableau tableau
+*/
+float* comp_vec_mat_2(int64_t* vecteur, int64_t** matrice)
+{
+    // Déclaration de la variable final, un vecteur
+    float* res = (float*)malloc(sizeof(float) * N);
+
+    // Vérification de la variable res
+    if(res == NULL)
+        return NULL;
+
+    // Calcul du produit vecteur * Matrice
+    for(int i = 0; i < N; i++)
+    {
+        res[i] = 0.0f;
+        for(int j = 0; j < N; j++)
+        {
+            res[i] += (float)matrice[i][j] * (float)vecteur[j];
+        }
+    }
+
+    return res;
+}
+
+/*
 Fonction pour calculer Matrice * Vecteur
 */
 double* comp_mat_vec(int64_t* matrice, int64_t* vecteur)
@@ -77,3 +102,4 @@ uint64_t* comp_mat_mat(int64_t* mat1, int64_t* mat2)
 
     return res;
 }
+

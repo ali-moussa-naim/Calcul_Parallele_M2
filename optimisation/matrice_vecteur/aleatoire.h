@@ -6,5 +6,6 @@
 int64_t random_int64_posix(void);
 int64_t* gen_vector_rand();
 int64_t* gen_matrix_rand();
+int64_t** gen_matrix_rand_2();
 
 #endif 
