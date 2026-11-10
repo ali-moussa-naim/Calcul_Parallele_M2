@@ -7,7 +7,10 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define N 5
+#ifndef N
+#define N 20
+#endif
+
 #define NTEST 1000
 #define NSAMPLE 30
 #define NWARMUP 300
