@@ -43,7 +43,7 @@ float* comp_vec_mat_2(int64_t* vecteur, int64_t** matrice)
         res[i] = 0.0f;
         for(int j = 0; j < N; j++)
         {
-            res[i] += (float)matrice[i][j] * (float)vecteur[j];
+            res[i] += (float)matrice[j][i] * (float)vecteur[j];
         }
     }
 

@@ -279,6 +279,10 @@ double mesure_mat_mat_2(int64_t** matrice1, int64_t** matrice2)
         if (res == NULL)
             return -1.0;
 
+        for(int k = 0; k < N; k++) 
+        {
+            free(res[k]);
+        }
         free(res);
     }
 
@@ -300,6 +304,10 @@ double mesure_mat_mat_2(int64_t** matrice1, int64_t** matrice2)
 
             cycles = STOP - START;
 
+            for(int k = 0; k < N; k++) 
+            {
+                free(res[k]);
+            }
             free(res);
 
             if (cycles < min_cycles)

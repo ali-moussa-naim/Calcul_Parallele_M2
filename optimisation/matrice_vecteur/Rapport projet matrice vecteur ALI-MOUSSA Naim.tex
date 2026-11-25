@@ -1,0 +1,34 @@
+\documentclass[14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{Rapport projet Calcul Parallèle}
+\author{Naïm ALI-MOUSSA}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\section*{Table des sommaires}
+\tableofcontents
+
+\newpage
+\section{Introduction}
+L'objectif de ce projet est d'implanter les produits \textit{Matrice * Vecteur}, \textit{Vecteur * Matrice} et \textit{Matrice * Matrice}. Pour cela, nous développerons notre programme en langage C.\\
+Dans un premier temps, nous aborderons ces opérations de manière séquentielle. Nous testerons les différents types offerts par le langage C, comparerons les performances entre les opérations, mesurerons le nombre de cycles CPU nécessaires à leur exécution selon différentes implémentations, et utiliserons des options d'optimisation du compilateur \texttt{gcc} ainsi que diverses autres techniques.\\
+Dans un second temps, nous implémenterons ces calculs selon une approche SIMD à l'aide des instructions \textbf{AVX2}, afin de paralléliser les traitements et de mesurer les gains de performance obtenus par rapport à la version séquentielle.
+
+\newpage
+\section{Architecture du projet}
+Pour réaliser efficacement ce projet il faut mettre en place une architecture propre et organisée.\\
+Je vais opter de façon classique pour des projets réalisées en C en utilisant un \textbf{Makefile} afin de pouvoir compiler beaucoup plus facilement et gérer mes différents fichiers. De plus j'aurai plusieurs fichiers sources avec leurs équivalents en header qui contiendra les librairies nécessaires pour réaliser les fonctions dans les fichiers.c.\\
+Le fichier \textbf{global.h} est celui qui contient toutes les librairies comme: stdio.h, stlib.h, etc. Cela sera utile afin d'éviter des dépendances cycliques et que cela engendre des problèmes à la compilation.\\
+Le fichier \textbf{ccount.h} contient les macros pour pouvoir mesurer les temps CPU avec l'algorithme de mesures de performances qui est énoncé dans le cours.
+
+\newpage
+\section{Tableau à 1 dimension}
+
+\end{document}

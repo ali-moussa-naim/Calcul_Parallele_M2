@@ -81,17 +81,17 @@ int main()
     double cycles_vec_mat = mesure_vec_mat(vecteur, matrice1);
 
     if (cycles_vec_mat < 0.0) {
-        fprintf(stderr, "Erreur pendant la mesure\n");
+        fprintf(stderr, "Erreur pendant la mesure cycles_vec_mat\n");
         return 1;
     }
 
     printf("Vecteur * matrice : %.2f cycles en moyenne\n", cycles_vec_mat);
 
-    double cycles_mat_vec = mesure_mat_vec(vecteur, matrice1);
+    double cycles_mat_vec = mesure_mat_vec(matrice1, vecteur);
 
     if(cycles_mat_vec < 0.0) 
     {
-        fprintf(stderr, "Erreur pendant la mesure\n");
+        fprintf(stderr, "Erreur pendant la mesure cycles_mat_vec\n");
         return 1;
     }
 
@@ -101,7 +101,7 @@ int main()
 
     if(cycles_mat_mat < 0.0) 
     {
-        fprintf(stderr, "Erreur pendant la mesure\n");
+        fprintf(stderr, "Erreur pendant la mesure cycles_mat_mat\n");
         return 1;
     }
 
@@ -114,7 +114,7 @@ int main()
     double cycles_vec_mat_2 = mesure_vec_mat_2(vec, mat1);
 
     if (cycles_vec_mat_2 < 0.0) {
-        fprintf(stderr, "Erreur pendant la mesure\n");
+        fprintf(stderr, "Erreur pendant la mesure cycles_vec_mat_2\n");
         return 1;
     }
 
@@ -124,7 +124,7 @@ int main()
 
     if(cycles_mat_vec_2 < 0.0) 
     {
-        fprintf(stderr, "Erreur pendant la mesure\n");
+        fprintf(stderr, "Erreur pendant la mesure cycles_mat_vec_2\n");
         return 1;
     }
 
@@ -145,6 +145,12 @@ int main()
     free(matrice1);
     free(matrice2);
     free(vec);
+
+    for(int i = 0; i < N; i++)
+    {
+        free(mat[i]);
+        free(mat1[i]);
+    }
     free(mat);
     free(mat1);
 }

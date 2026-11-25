@@ -103,7 +103,7 @@ void display_matrix_2(int64_t** matrice)
             printf("Ligne %d:\n", i + 1);
             for(int j = 0; j < N; j++)
             {
-                printf("%" PRIu64 " ", matrice[i][j]);
+                printf("%" PRId64 " ", matrice[i][j]);
             }
 
             printf("\n");
