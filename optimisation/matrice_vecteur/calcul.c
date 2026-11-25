@@ -3,10 +3,10 @@
 /*
 Fonction pour calculer vecteur * Matrice
 */
-float* comp_vec_mat(int64_t* vecteur, int64_t* matrice)
+int64_t* comp_vec_mat(int64_t* vecteur, int64_t* matrice)
 {
     // Déclaration de la variable finale (vecteur)
-    float* res = (float*)malloc(sizeof(float) * N);
+    int64_t* res = (int64_t*)malloc(sizeof(int64_t) * N);
 
     // Vérification de la variable res
     if(res == NULL)
@@ -18,7 +18,7 @@ float* comp_vec_mat(int64_t* vecteur, int64_t* matrice)
         res[i] = 0.0f;
         for(int j = 0; j < N; j++)
         {
-           res[i] +=  (float)matrice[j * N + i] * (float)vecteur[j];
+           res[i] +=  matrice[j * N + i] * vecteur[j];
         }
     }
 
@@ -28,10 +28,10 @@ float* comp_vec_mat(int64_t* vecteur, int64_t* matrice)
 /*
 Fonction pour calculer vecteur * Matrice, avec une matrice tableau tableau
 */
-float* comp_vec_mat_2(int64_t* vecteur, int64_t** matrice)
+int64_t* comp_vec_mat_2(int64_t* vecteur, int64_t** matrice)
 {
     // Déclaration de la variable final, un vecteur
-    float* res = (float*)malloc(sizeof(float) * N);
+    int64_t* res = (int64_t*)malloc(sizeof(int64_t) * N);
 
     // Vérification de la variable res
     if(res == NULL)
@@ -43,7 +43,7 @@ float* comp_vec_mat_2(int64_t* vecteur, int64_t** matrice)
         res[i] = 0.0f;
         for(int j = 0; j < N; j++)
         {
-            res[i] += (float)matrice[j][i] * (float)vecteur[j];
+            res[i] += matrice[j][i] * vecteur[j];
         }
     }
 
@@ -53,10 +53,10 @@ float* comp_vec_mat_2(int64_t* vecteur, int64_t** matrice)
 /*
 Fonction pour calculer Matrice * Vecteur
 */
-float* comp_mat_vec(int64_t* matrice, int64_t* vecteur)
+int64_t* comp_mat_vec(int64_t* matrice, int64_t* vecteur)
 {
     // Dclaration de la variable finale(vecteur)
-    float* res = (float*)malloc(sizeof(float) * N);
+    int64_t* res = (int64_t*)malloc(sizeof(int64_t) * N);
 
     // Vérification de la variable res
     if(res == NULL)
@@ -68,7 +68,7 @@ float* comp_mat_vec(int64_t* matrice, int64_t* vecteur)
         res[i] = 0.0f;
         for(int j = 0; j < N; j++)
         {
-            res[i] += (float)matrice[i * N + j] * (float)vecteur[j];
+            res[i] += matrice[i * N + j] * vecteur[j];
         }
     }
 
@@ -78,10 +78,10 @@ float* comp_mat_vec(int64_t* matrice, int64_t* vecteur)
 /*
 Fonction pour calculer Matrice * Vecteur, avec matrice tableau * tableau
 */
-float* comp_mat_vec_2(int64_t** matrice, int64_t* vecteur)
+int64_t* comp_mat_vec_2(int64_t** matrice, int64_t* vecteur)
 {
     // Dclaration de la variable finale(vecteur)
-    float* res = (float*)malloc(sizeof(float) * N);
+    int64_t* res = (int64_t*)malloc(sizeof(int64_t) * N);
 
     // Vérification de la variable res
     if(res == NULL)
@@ -93,7 +93,7 @@ float* comp_mat_vec_2(int64_t** matrice, int64_t* vecteur)
         res[i] = 0.0f;
         for(int j = 0; j < N; j++)
         {
-            res[i] += (float)matrice[i][j] * (float)vecteur[j];
+            res[i] += matrice[i][j] * vecteur[j];
         }
     }
 

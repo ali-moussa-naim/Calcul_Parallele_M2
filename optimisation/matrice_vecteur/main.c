@@ -2,6 +2,7 @@
 #include "aleatoire.h"
 #include "calcul.h"
 #include "mesure.h"
+#include "courbe.h"
 
 #include <time.h>
 
@@ -118,7 +119,7 @@ int main()
         return 1;
     }
 
-    printf("Vecteur * matrice : %.2f cycles en moyenne\n", cycles_vec_mat);
+    printf("Vecteur * matrice : %.2f cycles en moyenne\n", cycles_vec_mat_2);
 
     double cycles_mat_vec_2 = mesure_mat_vec_2(mat1, vec);
 
@@ -128,7 +129,7 @@ int main()
         return 1;
     }
 
-    printf("Matrice * vecteur : %.2f cycles en moyenne\n", cycles_mat_vec);
+    printf("Matrice * vecteur : %.2f cycles en moyenne\n", cycles_mat_vec_2);
 
     double cycles_mat_mat_2 = mesure_mat_mat_2(mat, mat1);
 
@@ -139,6 +140,19 @@ int main()
     }
 
     printf("Matrice * Matrice : %.2f cycles en moyenne\n", cycles_mat_mat_2);
+
+    // Affichage courbe : écriture des mesures dans data.txt puis tracé
+    FILE* f_data = fopen("data.txt", "a");
+    if (f_data == NULL)
+    {
+        fprintf(stderr, "Erreur : impossible d'ouvrir data.txt\n");
+    }
+    else
+    {
+        fprintf(f_data, "%d\t%.2f\t%.2f\t%.2f\n", N, cycles_vec_mat, cycles_mat_vec, cycles_mat_mat);
+        fclose(f_data);
+        tracer_courbe_tab();
+    }
 
     // Désallocation mémoire
     free(vecteur);
@@ -153,5 +167,6 @@ int main()
     }
     free(mat);
     free(mat1);
+
+    return 0;
 }
- 

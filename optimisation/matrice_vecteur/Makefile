@@ -1,10 +1,11 @@
 # Variables
 CC = gcc
-CFLAGS = -Wall 
+CFLAGS = -Wall -O2
 SOURCES = $(wildcard *.c)
 OBJECTS = $(SOURCES:.c=.o)
 HEADERS = $(wildcard *.h)
 TARGET = main
+SIZES = 1 2 4 8 16 32 64 128
 
 all: $(TARGET)
 
@@ -17,13 +18,12 @@ $(TARGET): $(OBJECTS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Test pour lancer plusieurs fois à la suite le programme
-test:
-	@for i in 1 2 3 4 5 6 7 8 9 10; do \
-		echo "-- Test avec la constante N=$$i --"; \
-		$(CC) $(CFLAGS) -DN=$$i -c $(SOURCES); \
-		$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS); \
-		./$(TARGET); \
-		echo ""; \
+bench:
+	@> data_1D.txt
+	@> data_2D.txt
+	@for n in $(SIZES); do \
+		gcc -DN=$$n main.c calcul.c mesure.c aleatoire.c affichage.c courbe.c -o prog && \
+		./prog; \
 	done
 
 # Nettoyage

@@ -1,6 +1,7 @@
 \documentclass[14pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
 
 \title{Rapport projet Calcul Parallèle}
 \author{Naïm ALI-MOUSSA}
@@ -19,7 +20,8 @@
 \section{Introduction}
 L'objectif de ce projet est d'implanter les produits \textit{Matrice * Vecteur}, \textit{Vecteur * Matrice} et \textit{Matrice * Matrice}. Pour cela, nous développerons notre programme en langage C.\\
 Dans un premier temps, nous aborderons ces opérations de manière séquentielle. Nous testerons les différents types offerts par le langage C, comparerons les performances entre les opérations, mesurerons le nombre de cycles CPU nécessaires à leur exécution selon différentes implémentations, et utiliserons des options d'optimisation du compilateur \texttt{gcc} ainsi que diverses autres techniques.\\
-Dans un second temps, nous implémenterons ces calculs selon une approche SIMD à l'aide des instructions \textbf{AVX2}, afin de paralléliser les traitements et de mesurer les gains de performance obtenus par rapport à la version séquentielle.
+Dans un second temps, nous implémenterons ces calculs selon une approche SIMD à l'aide des instructions \textbf{AVX2}, afin de paralléliser les traitements et de mesurer les gains de performance obtenus par rapport à la version séquentielle.\\
+Pour ne pas disperser l'analyse au vu des nombreuses configurations possibles on va seulement se concentrer sur la comparaison de ces opérations en gardant le même type, c'est-à-dire le type \textbf{int64t} et constater les différences avec diverses méthodes.
 
 \newpage
 \section{Architecture du projet}
@@ -29,6 +31,40 @@ Le fichier \textbf{global.h} est celui qui contient toutes les librairies comme:
 Le fichier \textbf{ccount.h} contient les macros pour pouvoir mesurer les temps CPU avec l'algorithme de mesures de performances qui est énoncé dans le cours.
 
 \newpage
-\section{Tableau à 1 dimension}
+\section{Les représentations de matrice en séquentielle}
+\subsection{Tableau à 1 dimension}
+La première méthode implémentée a été de créer des matrices à 1 seule dimension, ils seront représentés par des pointeurs sur \texttt{int64t*}. Voici un graphique qui va pouvoir afficher les différences de nombres de cycles CPU entre ces 3 opérations:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{courbe0_tab_1D.png}
+    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) sans optimisation.}
+    \label{fig:courbe_1d}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{courbe02_tab_1D.png}
+    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) avec une optimisation O2.}
+    \label{fig:courbe_1d}
+\end{figure}
+
+Les mesures du nombre de cycles CPU ont été effectuées avec les fonctions \texttt{mesure\_vec\_mat}, \texttt{mesure\_mat\_vec} et \texttt{mesure\_mat\_mat}, en faisant varier la constante $N$ de $2^1$ à $2^7$ (en multipliant $N$ par $2$ à chaque étape).
+À première vue, l'opération \textit{Matrice $\times$ Matrice} est beaucoup plus coûteuse en cycles CPU que les deux autres. Ce résultat est tout à fait cohérent avec la complexité algorithmique et le volume de données manipulé :
+\begin{itemize}
+    \item \textbf{Complexité temporelle :} Le produit matriciel repose sur trois boucles imbriquées ($i$, $j$ et $k$, où $i$ parcourt les lignes de la matrice de gauche, $j$ les colonnes de la matrice de droite et $k$ l'indice commun), ce qui donne une complexité en $O(N^3)$. À l'inverse, les produits \textit{Matrice $\times$ Vecteur} et \textit{Vecteur $\times$ Matrice} ne nécessitent que deux boucles imbriquées, soit une complexité quadratique en $O(N^2)$ (parce que les matrices et vecteurs partageant la même dimension $N$).
+    \item \textbf{Volume de données en mémoire :} Le produit matriciel manipule deux matrices carrées, soit $2N^2$ éléments en mémoire, contre $N^2 + N$ éléments pour les opérations impliquant un vecteur.
+\end{itemize}
+Ainsi, le produit matriciel effectue $N$ fois plus d'opérations élémentaires que les deux autres produits ($N^3$ contre $N^2$), ce qui explique l'écart important observé sur le nombre de cycles CPU dès que $N$ augmente.
+\\\\
+Ensuite on peut comparer les valeurs entre les opérations \textit{Matrice $\times$ Vecteur} et \textit{Vecteur $\times$ Matrice}. On peut observer que les 2 ont relativement le même nombre de cycles CPU, mais l'opération \textit{Matrice $\times$ Vecteur} est quand même un peu plus efficace, plus rapide. \\
+Pour \textit{Matrice $\times$ Vecteur} l'opérande de gauche est la matrice alors que l'opérande de droite est le vecteur, c'est cette différence qui va influer sur le résultat. Comme nous avons représenté la matrice comme un \textbf{int64\_t*}, c'est-à-dire un tableau à 1 dimension, alors toutes les valeurs seront contigües, les unes après les autres sur un espace de taille \textit{N $\times$ N}. Pour réaliser \textit{Matrice $\times$ Vecteur} on doit parcourir les éléments sur chaque ligne de la matrice et les multiplier par les éléments du vecteur.\\
+Alors que pour l'opération \textit{Vecteur $\times$ Matrice}, comme la matrice est à droite on va devoir parcourir les éléments sur la même colonne de la matrice. Et parcourir les éléments sur la même ligne ou sur la même colonne n'a pas le même temps d'exécution pour la machine, en effet le stride ne sera pas le même dans les 2 cas.\\
+Le stride est la distance entre les adresses de 2 valeurs consécutivement accédées. Pour \textit{Matrice $\times$ Vecteur} le stride est de \textbf{1} alors que pour \textit{Vecteur $\times$ Matrice} le stride est de \textbf{N}. Dans le cas de \textit{Vecteur $\times$ Matrice} le fait que le stride soit de N va générer le problème suivant. On travaille avec le type \texttt{int64\_t} qui nous permet de manipuler des valeurs sur 8 octets, mais on doit faire des sauts de N pour accéder à la valeur suivante et une ligne de cache fait $64$~octets, mais lorsque l'on effectue des sauts de $N \times 8$~octets, les accès sortent de la ligne de cache quand la valeur de $N \ge 8$. Donc cela provoque des défauts de cache L1 (\textit{cache misses}) et oblige le processeur à aller chercher la donnée dans les niveaux inférieurs de mémoire (cache L2, L3). 
+Cela nous fait comprendre pourquoi \textit{Vecteur $\times$ Matrice} met un peu plus de temps en nombre de cycles CPU.
+
+\newpage
+\subsection{Tableau à 2 dimensions}
+Ensuite 
 
 \end{document}

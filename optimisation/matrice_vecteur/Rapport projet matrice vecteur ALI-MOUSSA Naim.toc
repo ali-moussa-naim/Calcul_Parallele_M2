@@ -1,3 +1,5 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{}%
 \contentsline {section}{\numberline {2}Architecture du projet}{4}{}%
-\contentsline {section}{\numberline {3}Tableau à 1 dimension}{5}{}%
+\contentsline {section}{\numberline {3}Les représentations de matrice en séquentielle}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Tableau à 1 dimension}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Tableau à 2 dimensions}{8}{}%

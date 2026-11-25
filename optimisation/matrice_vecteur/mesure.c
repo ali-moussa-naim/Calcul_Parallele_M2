@@ -10,7 +10,7 @@ double mesure_vec_mat(int64_t* vecteur, int64_t* matrice)
     unsigned long long min_cycles;
     long double somme_min = 0.0L;
 
-    float* res;
+    int64_t* res;
 
     // Chauffage des caches
     for (int i = 0; i < NWARMUP; i++) 
@@ -62,7 +62,7 @@ double mesure_vec_mat_2(int64_t* vecteur, int64_t** matrice)
     unsigned long long min_cycles;
     long double somme_min = 0.0L;
 
-    float* res;
+    int64_t* res;
 
     // Chauffage des caches
     for (int i = 0; i < NWARMUP; i++) 
@@ -114,7 +114,7 @@ double mesure_mat_vec(int64_t* matrice, int64_t* vecteur)
     unsigned long long min_cycles;
     long double somme_min = 0.0L;
 
-    float* res;
+    int64_t* res;
 
     // Chauffage des caches
     for (int i = 0; i < NWARMUP; i++) 
@@ -166,7 +166,7 @@ double mesure_mat_vec_2(int64_t** matrice, int64_t* vecteur)
     unsigned long long min_cycles;
     long double somme_min = 0.0L;
 
-    float* res;
+    int64_t* res;
 
     // Chauffage des caches
     for (int i = 0; i < NWARMUP; i++) 

@@ -1,0 +1,29 @@
+# --- Compilation C & Exécutables ---
+*.o
+*.a
+*.so
+*.out
+prog
+*.exe
+
+# --- Fichiers temporaires LaTeX ---
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+
+# --- Fichiers système / Éditeurs ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
