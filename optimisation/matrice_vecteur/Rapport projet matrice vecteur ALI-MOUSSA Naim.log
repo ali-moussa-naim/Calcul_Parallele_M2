@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.4.28)  25 NOV 2026 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.4.28)  25 NOV 2026 19:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -55,11 +55,18 @@ File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
+) (C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count271
+\float@exts=\toks20
+\float@box=\box53
+\@float@everytoks=\toks21
+\@floatcapt=\box54
 )
 (C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-03-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count271
+\l__color_backend_stack_int=\count272
 )
 
 LaTeX Warning: Unused global option(s):
@@ -72,35 +79,35 @@ LaTeX Warning: Label `fig:courbe_1d' multiply defined.
 )
 \openout1 = `"Rapport projet matrice vecteur ALI-MOUSSA Naim.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 (C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count272
+\scratchcounter=\count273
 \scratchdimen=\dimen149
-\scratchbox=\box53
-\nofMPsegments=\count273
-\nofMParguments=\count274
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count275
+\scratchbox=\box55
+\nofMPsegments=\count274
+\nofMParguments=\count275
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count276
 \MPscratchDim=\dimen150
-\MPnumerator=\count276
-\makeMPintoPDFobject=\count277
-\everyMPtoPDFconversion=\toks21
+\MPnumerator=\count277
+\makeMPintoPDFobject=\count278
+\everyMPtoPDFconversion=\toks23
 )
 (C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -113,11 +120,11 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 12.
+(Font)              <12> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 12.
+(Font)              <8> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 12.
+(Font)              <6> on input line 13.
 
 
 [1
@@ -142,12 +149,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 <courbe0_tab_1D.png, id=21, 481.8pt x 361.35pt>
 File: courbe0_tab_1D.png Graphic file (type png)
 <use courbe0_tab_1D.png>
-Package pdftex.def Info: courbe0_tab_1D.png  used on input line 39.
+Package pdftex.def Info: courbe0_tab_1D.png  used on input line 40.
 (pdftex.def)             Requested size: 293.2521pt x 219.94348pt.
-<courbe02_tab_1D.png, id=22, 481.8pt x 361.35pt>
+
+
+[5 <./courbe0_tab_1D.png (PNG copy)>]
+<courbe02_tab_1D.png, id=31, 481.8pt x 361.35pt>
 File: courbe02_tab_1D.png Graphic file (type png)
 <use courbe02_tab_1D.png>
-Package pdftex.def Info: courbe02_tab_1D.png  used on input line 47.
+Package pdftex.def Info: courbe02_tab_1D.png  used on input line 65.
 (pdftex.def)             Requested size: 293.2521pt x 219.94348pt.
 
 
@@ -155,16 +165,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[5 <./courbe0_tab_1D.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 58--65
+[6]
 
- []
-
-
-
-[6 <./courbe02_tab_1D.png (PNG copy)>]
-
-[7]
+[7 <./courbe02_tab_1D.png (PNG copy)>]
 
 [8] (Rapport projet matrice vecteur ALI-MOUSSA Naim.aux)
  ***********
@@ -177,13 +180,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1579 strings out of 469959
- 25589 string characters out of 5469834
- 430121 words of memory out of 5000000
- 28391 multiletter control sequences out of 15000+600000
+ 1651 strings out of 469959
+ 26719 string characters out of 5469834
+ 434121 words of memory out of 5000000
+ 28459 multiletter control sequences out of 15000+600000
  636285 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,950b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,7n,65p,950b,234s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecbx1200.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -200,9 +203,9 @@ ers/matig/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb
 ><C:/Users/matig/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 msy10.pfb>
 Output written on "Rapport projet matrice vecteur ALI-MOUSSA Naim.pdf" (8 pages
-, 202337 bytes).
+, 209045 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
+ 308 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
