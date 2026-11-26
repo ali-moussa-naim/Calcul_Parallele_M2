@@ -5,7 +5,7 @@ SOURCES = $(wildcard *.c)
 OBJECTS = $(SOURCES:.c=.o)
 HEADERS = $(wildcard *.h)
 TARGET = main
-SIZES = 1 2 4 8 16 32 64 128
+SIZES = 128
 
 all: $(TARGET)
 
@@ -22,7 +22,7 @@ bench:
 	@> data_1D.txt
 	@> data_2D.txt
 	@for n in $(SIZES); do \
-		gcc -DN=$$n main.c calcul.c mesure.c aleatoire.c affichage.c courbe.c -o prog && \
+		gcc -O0 -DN=$$n main.c calcul.c mesure.c aleatoire.c affichage.c courbe.c -o prog && \
 		./prog; \
 	done
 
