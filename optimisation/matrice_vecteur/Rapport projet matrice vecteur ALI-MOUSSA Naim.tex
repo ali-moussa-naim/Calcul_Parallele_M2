@@ -38,7 +38,7 @@ La première méthode implémentée a été de créer des matrices à 1 seule di
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{courbe0_tab_1D.png}
-    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) sans optimisation.}
+    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) sans optimisation \texttt{-O0}.}
     \label{fig:courbe_1d}
 \end{figure}
 
@@ -50,29 +50,58 @@ Les mesures du nombre de cycles CPU ont été effectuées avec les fonctions \te
 \end{itemize}
 Ainsi, le produit matriciel effectue $N$ fois plus d'opérations élémentaires que les deux autres produits ($N^3$ contre $N^2$), ce qui explique l'écart important observé sur le nombre de cycles CPU dès que $N$ augmente.
 \\
-En comparant plus précisément les deux opérations en $O(N^2)$ sans optimisation (\texttt{-O0}), on observe que \textit{Matrice $\times$ Vecteur} est légèrement plus lent que \textit{Vecteur $\times$ Matrice} puis il reprend l'avantage en étant un peu plus rapide quand $N=128$.
+\\
+En comparant plus précisément les deux opérations en $O(N^2)$ sans optimisation (\texttt{-O0}), on observe que \textit{Matrice $\times$ Vecteur} est légèrement plus lent que \textit{Vecteur $\times$ Matrice} pour les petites tailles ($N \le 64$), puis reprend l'avantage en étant un peu plus rapide à partir de $N = 128$.
 
-Ce phénomène s'explique par l'absence d'optimisation du compilateur en mode \texttt{-O0} :
+Ce phénomène s'explique par deux facteurs complémentaires :
 \begin{itemize}
-    \item \textbf{Absence d'allocation dans les registres :} D'après le manuel de \texttt{gcc} (\texttt{man gcc}), l'option \texttt{-O0} vise à réduire le temps de compilation et à produire les résultats attendues lors du débogage. Concrètement, le compilateur n'applique aucune optimisation sur le code généré : les variables restent allouées en mémoire sur la pile plutôt que dans les registres CPU et aucune boucle n'est transformée, ce qui explique les temps d'exécution élevés observés sur cette première courbe. À chaque itération de la boucle interne, les variables locales et les calculs d'indices (\texttt{i * N + j}) sont systématiquement lus et réécrits sur la pile en mémoire, ce qui génère un surcoût d'instructions CPU.
+    \item \textbf{Absence d'allocation dans les registres :} D'après le manuel de \texttt{gcc} (\texttt{man gcc}), l'option \texttt{-O0} vise à réduire le temps de compilation et à produire les résultats attendus lors du débogage. Concrètement, le compilateur n'applique aucune optimisation sur le code généré : les variables restent allouées en mémoire sur la pile plutôt que dans les registres CPU et aucune boucle n'est transformée, ce qui explique les temps d'exécution élevés observés sur cette première courbe. À chaque itération de la boucle interne, les variables locales et les calculs d'indices (\texttt{i * N + j}) sont systématiquement lus et réécrits sur la pile en mémoire, générant un surcoût d'instructions CPU qui masque l'effet du cache tant que $N \le 64$.
+
+    \item \textbf{Saturation du cache L1 et localité spatiale à $N = 128$ :} Pour accélérer les accès mémoire par rapport à la RAM, le processeur dispose d'une hiérarchie de mémoires caches (L1, L2, L3). Le cache de données de niveau 1 (L1) est le plus rapide mais aussi le plus petit (généralement $32$~Ko ou $48$~Ko). Lorsque $N = 128$, la matrice contient $128 \times 128 = 16\,384$ éléments de type \texttt{int64\_t} ($8$~octets chacun), soit un volume de $128$~Ko qui dépasse la capacité du cache L1. Cela entraîne des défauts de cache (\textit{cache misses}) vers les niveaux L2 et L3. La matrice étant stockée de manière contiguë ligne par ligne, \textit{Matrice $\times$ Vecteur} parcourt les éléments consécutivement et profite directement des $8$ éléments chargés simultanément dans chaque ligne de cache de $64$~octets, tandis que \textit{Vecteur $\times$ Matrice} effectue des sauts de $N$ éléments en mémoire, ce qui multiplie les défauts de cache L1 et explique que \textit{Matrice $\times$ Vecteur} repasse devant à $N = 128$.
 \end{itemize}
 
-Et voici un autre graphique mais cette fois-ci optimisée avec l'option -O2:
+Cette différence d'accès mémoire s'explique directement par la notion de \textit{stride}, qui désigne la distance en mémoire entre deux valeurs consécutivement accédées. \textit{Matrice $\times$ Vecteur} possède un \textit{stride} de $1$, tandis que \textit{Vecteur $\times$ Matrice} possède un \textit{stride} de $N$ : combiné à la saturation du cache L1, ce pas d'accès élevé pénalise directement cette seconde méthode dès que la taille des données augmente.
+\\\\
+Et voici un autre graphique mais cette fois-ci optimisée:
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{courbe02_tab_1D.png}
-    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) avec optimisation.}
+    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) avec optimisation \texttt{-O2}.}
     \label{fig:courbe_1d}
 \end{figure}
 
+On constate globalement la même hiérarchie entre les opérations, sauf qu'avec \texttt{-O2}, le nombre de cycles CPU chute fortement et \textit{Matrice $\times$ Vecteur} est désormais  plus rapide que \textit{Vecteur $\times$ Matrice} pour toutes les valeurs de $N$.
+\\
+En effet, dans \textit{Matrice $\times$ Vecteur}, la matrice (opérande de gauche, stockée de manière contiguë dans un tableau 1D \texttt{int64\_t*}) est parcourue ligne par ligne, tandis que dans \textit{Vecteur $\times$ Matrice} (matrice à droite), elle est parcourue colonne par colonne. La différence de temps d'exécution s'explique alors par l'interaction entre le compilateur et la mémoire :
 
-On constate les mêmes chose, sauf que cette fois-ci \textit{Matrice $\times$ Vecteur} nécessite un peu moins de cycles CPU et qu'il est plus rapide que \textit{Vecteur $\times$ Matrice} et que c'est valable pour toutes les valeurs de N.\\
-Pour \textit{Matrice $\times$ Vecteur} l'opérande de gauche est la matrice alors que l'opérande de droite est le vecteur, c'est cette différence qui va influer sur le résultat. Comme nous avons représenté la matrice comme un \textbf{int64\_t*}, c'est-à-dire un tableau à 1 dimension, alors toutes les valeurs seront contigües, les unes après les autres sur un espace de taille \textit{N $\times$ N}. Pour réaliser \textit{Matrice $\times$ Vecteur} on doit parcourir les éléments sur chaque ligne de la matrice et les multiplier par les éléments du vecteur.\\
-Alors que pour l'opération \textit{Vecteur $\times$ Matrice}, comme la matrice est à droite on va devoir parcourir les éléments sur la même colonne de la matrice. Et parcourir les éléments sur la même ligne ou sur la même colonne n'a pas le même temps d'exécution pour la machine, en effet le stride ne sera pas le même dans les 2 cas.\\
 \begin{itemize}
-	\item \textbf{Différence de stride entre les 2 opérations :} Le stride est la distance entre les adresses de 2 valeurs consécutivement accédées. Pour \textit{Matrice $\times$ Vecteur} le stride est de \textbf{1} alors que pour \textit{Vecteur $\times$ Matrice} le stride est de \textbf{N}. Dans le cas de \textit{Vecteur $\times$ Matrice} le fait que le stride soit de N va générer le problème suivant. On travaille avec le type \texttt{int64\_t} qui nous permet de manipuler des valeurs sur 8 octets, mais on doit faire des sauts de N pour accéder à la valeur suivante et une ligne de cache fait $64$~octets, mais lorsque l'on effectue des sauts de $N \times 8$~octets, les accès sortent de la ligne de cache quand la valeur de $N \ge 8$. Donc cela provoque des défauts de cache L1 (\textit{cache misses}) et oblige le processeur à aller chercher la donnée dans les niveaux inférieurs de mémoire (cache L2, L3). 
-Cela nous fait comprendre pourquoi \textit{Vecteur $\times$ Matrice} met un peu plus de temps en nombre de cycles CPU.
+    \item \textbf{Effet de l'optimisation avec \texttt{-O2} :} D'après le manuel de \texttt{gcc} (\texttt{man gcc}), l'option \texttt{-O2} applique la quasi-totalité des optimisations n'impliquant pas de compromis entre l'espace mémoire et la vitesse d'exécution. Contrairement à \texttt{-O0}, cette option augmente le temps de compilation mais améliore nettement les performances du code généré en activant notamment :
+    \begin{itemize}
+        \item \textbf{Élimination du surcoût CPU :} le compilateur place les variables dans les registres, factorise les calculs d'adresses redondants ($i \times N$) hors des boucles (\texttt{-fgcse}, \texttt{-ftree-pre}) et réordonne les instructions (\texttt{-fschedule-insns}) pour limiter les temps d'attente ;
+        \item \textbf{Vectorisation prudente :} il active l'auto-vectorisation (\texttt{-ftree-loop-vectorize}), mais la bride avec un modèle de coût conservateur (\texttt{-fvect-cost-model=very-cheap}) qui ne réorganise pas l'ordre des boucles.
+    \end{itemize}
+    \item \textbf{L'accès mémoire comme facteur limitant :} Le processeur n'étant plus freiné par des instructions redondantes ni par des accès constants à la pile, la vitesse d'accès aux données devient déterminante. Comme établi précédemment, le parcours ligne par ligne de \textit{Matrice $\times$ Vecteur} bénéficie d'un \textit{stride} de $1$ (exploite pleinement les lignes de cache de $64$~octets), tandis que le parcours colonne par colonne de \textit{Vecteur $\times$ Matrice} impose un \textit{stride} de $N$, multipliant les défauts de cache dès que $N \ge 8$.
+\end{itemize}
+
+Ceci explique pourquoi, dès l'activation de \texttt{-O2}, \textit{Matrice $\times$ Vecteur} est plus rapide que \textit{Vecteur $\times$ Matrice} sur l'ensemble de la courbe.
+\\\\
+Puis une dernière observation se fait en observant la courbe avec une autre méthode d'optimisation.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\textwidth]{courbefast_tab1D.png}
+    \caption{Comparaison du nombre de cycles CPU pour les trois opérations (tableau 1D) avec optimisation \texttt{-Ofast}.}
+    \label{fig:courbe_1d}
+\end{figure}
+
+On constate cette fois-ci que c'est l'inverse que ce qui se passait avec l'option \textit{-Ofast}, que dans cet exemple c'est \textit{Matrice $\times$ Vecteur} qui est moins rapide que \textit{Vecteur $\times$ Matrice} sur l'ensemble de la courbe. 
+\\
+D'après le manuel de \texttt{gcc} (\texttt{man gcc}), \texttt{-Ofast} active l'ensemble des optimisations agressives de \texttt{-O3} (les options supplémentaires comme \texttt{-ffast-math} ne s'appliquant pas aux entiers \texttt{int64\_t}). Contrairement à \texttt{-O2}, le compilateur n'est plus limité par un modèle de coût conservateur et peut réorganiser et dérouler les boucles pour exploiter pleinement les registres vectoriels AVX2 ($256$~bits, soit $4$ entiers \texttt{int64\_t} simultanés) :
+
+\begin{itemize}
+    \item \textbf{Vectorisation directe pour \textit{Vecteur $\times$ Matrice} :} En plaçant la boucle sur les colonnes $j$ à l'intérieur, le compilateur charge $4$ éléments contigus d'une ligne de la matrice, les multiplie par l'élément courant du vecteur et accumule directement le résultat dans $4$ cases consécutives du vecteur résultat (\texttt{res[j]}). Chaque itération vectorielle produit $4$ résultats indépendants sans opération de regroupement.
+    \item \textbf{Surcoût de réduction horizontale pour \textit{Matrice $\times$ Vecteur} :} Bien que le produit scalaire de chaque ligne soit également vectorisé dans un registre AVX2, le compilateur doit effectuer une somme horizontale des $4$ voies du registre à la fin de chaque ligne $i$ pour produire l'unique scalaire \texttt{res[i]}. Ces instructions supplémentaires de réduction pénalisent légèrement l'opération face à \textit{Vecteur $\times$ Matrice}.
 \end{itemize}
 
 \newpage

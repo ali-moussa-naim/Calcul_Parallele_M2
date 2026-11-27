@@ -1,78 +1,81 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.9.23)  26 NOV 2026 11:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.4.28)  27 NOV 2026 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"Rapport projet matrice vecteur ALI-MOUSSA Naim.tex"
-(./Rapport projet matrice vecteur ALI-MOUSSA Naim.tex
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+**"./Rapport projet matrice vecteur ALI-MOUSSA Naim.tex"
+(Rapport projet matrice vecteur ALI-MOUSSA Naim.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-03-26>
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count187
-\c@section=\count188
-\c@subsection=\count189
-\c@subsubsection=\count190
-\c@paragraph=\count191
-\c@subparagraph=\count192
-\c@figure=\count193
-\c@table=\count194
-\abovecaptionskip=\skip48
-\belowcaptionskip=\skip49
-\bibindent=\dimen140
+\c@part=\count197
+\c@section=\count198
+\c@subsection=\count199
+\c@subsubsection=\count266
+\c@paragraph=\count267
+\c@subparagraph=\count268
+\c@figure=\count269
+\c@table=\count270
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen146
 )
-(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2021/02/14 v1.3d Input encoding file
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 )
-(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen141
-\Gin@req@width=\dimen142
-)
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+\Gin@req@height=\dimen147
+\Gin@req@width=\dimen148
+) (C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count195
+\c@float@type=\count271
 \float@exts=\toks20
-\float@box=\box51
+\float@box=\box53
 \@float@everytoks=\toks21
-\@floatcapt=\box52
+\@floatcapt=\box54
 )
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count196
-\l__pdf_internal_box=\box53
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2025-03-14 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count272
 )
 
 LaTeX Warning: Unused global option(s):
     [14pt].
 
-(./Rapport projet matrice vecteur ALI-MOUSSA Naim.aux
+(Rapport projet matrice vecteur ALI-MOUSSA Naim.aux
+
+LaTeX Warning: Label `fig:courbe_1d' multiply defined.
+
 
 LaTeX Warning: Label `fig:courbe_1d' multiply defined.
 
@@ -93,27 +96,31 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
-\scratchdimen=\dimen143
-\scratchbox=\box54
-\nofMPsegments=\count198
-\nofMParguments=\count199
+\scratchcounter=\count273
+\scratchdimen=\dimen149
+\scratchbox=\box55
+\nofMPsegments=\count274
+\nofMParguments=\count275
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count266
-\MPscratchDim=\dimen144
-\MPnumerator=\count267
-\makeMPintoPDFobject=\count268
+\MPscratchCnt=\count276
+\MPscratchDim=\dimen150
+\MPnumerator=\count277
+\makeMPintoPDFobject=\count278
 \everyMPtoPDFconversion=\toks23
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+)
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+(C:\Users\matig\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 13.
@@ -122,10 +129,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 13.
 
+
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./Rapport projet matrice vecteur ALI-MOUSSA Naim.toc
+{C:/Users/matig/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(Rapport projet matrice vecteur ALI-MOUSSA Naim.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -134,34 +142,83 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `"Rapport projet matrice vecteur ALI-MOUSSA Naim.toc"'.
 
- [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-3.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [3] [4]
-<courbe0_tab_1D.png, id=22, 481.8pt x 361.35pt>
+
+[2]
+
+[3]
+
+[4]
+<courbe0_tab_1D.png, id=21, 481.8pt x 361.35pt>
 File: courbe0_tab_1D.png Graphic file (type png)
 <use courbe0_tab_1D.png>
 Package pdftex.def Info: courbe0_tab_1D.png  used on input line 40.
 (pdftex.def)             Requested size: 293.2521pt x 219.94348pt.
- [5 <./courbe0_tab_1D.png (PNG copy)>]
-<courbe02_tab_1D.png, id=32, 481.8pt x 361.35pt>
-File: courbe02_tab_1D.png Graphic file (type png)
-<use courbe02_tab_1D.png>
-Package pdftex.def Info: courbe02_tab_1D.png  used on input line 64.
-(pdftex.def)             Requested size: 293.2521pt x 219.94348pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--73
+
+[5 <./courbe0_tab_1D.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 51--55
 
  []
 
-[6 <./courbe02_tab_1D.png (PNG copy)>] [7] [8]
-(./Rapport projet matrice vecteur ALI-MOUSSA Naim.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--66
+
+ []
+
+<courbe02_tab_1D.png, id=31, 481.8pt x 361.35pt>
+File: courbe02_tab_1D.png Graphic file (type png)
+<use courbe02_tab_1D.png>
+Package pdftex.def Info: courbe02_tab_1D.png  used on input line 69.
+(pdftex.def)             Requested size: 293.2521pt x 219.94348pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (1.30798pt too wide) in paragraph at lines 74--77
+[]\T1/cmr/m/n/10 On con-state glob-ale-ment la même hiérar-chie en-tre les opér
+a-tions, sauf qu'avec
+ []
+
+
+
+[6]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 79.
+
+Overfull \hbox (67.84958pt too wide) in paragraph at lines 82--83
+[]\T1/cmr/bx/n/10 Vectorisation pru-dente : \T1/cmr/m/n/10 il ac-tive l'auto-ve
+ctorisation (\T1/cmtt/m/n/10 -ftree-loop-vectorize\T1/cmr/m/n/10 ),
+ []
+
+
+Overfull \hbox (71.0488pt too wide) in paragraph at lines 82--83
+\T1/cmr/m/n/10 mais la bride avec un mod-èle de coût con-ser-va-teur (\T1/cmtt/
+m/n/10 -fvect-cost-model=very-cheap\T1/cmr/m/n/10 )
+ []
+
+
+
+[7 <./courbe02_tab_1D.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
+
+ []
+
+<courbefast_tab1D.png, id=39, 481.8pt x 361.35pt>
+File: courbefast_tab1D.png Graphic file (type png)
+<use courbefast_tab1D.png>
+Package pdftex.def Info: courbefast_tab1D.png  used on input line 93.
+(pdftex.def)             Requested size: 293.2521pt x 219.94348pt.
+
+
+[8 <./courbefast_tab1D.png (PNG copy)>]
+
+[9]
+
+[10] (Rapport projet matrice vecteur ALI-MOUSSA Naim.aux)
  ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-22>
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-03-26>
  ***********
 
 
@@ -169,33 +226,33 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1677 strings out of 476112
- 26781 string characters out of 5793311
- 1929975 words of memory out of 5000000
- 23708 multiletter control sequences out of 15000+600000
- 567529 words of font info for 55 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 57i,7n,65p,1012b,234s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </etudiants/nalimous232/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/t
-crm1000.600pk> </etudiants/nalimous232/.texlive2023/texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecbx1200.600pk> </etudiants/nalimous232/.texlive2023/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ectt1000.600pk> </etudiants/nalimous232/.texlive2023/tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </etudiants/nalimous232/.tex
-live2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </etudiants/nali
-mous232/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </et
-udiants/nalimous232/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000
-.600pk> </etudiants/nalimous232/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecrm1200.600pk> </etudiants/nalimous232/.texlive2023/texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb>
-Output written on "Rapport projet matrice vecteur ALI-MOUSSA Naim.pdf" (8 pages
-, 190007 bytes).
+ 1661 strings out of 469959
+ 26945 string characters out of 5469834
+ 434121 words of memory out of 5000000
+ 28468 multiletter control sequences out of 15000+600000
+ 636986 words of font info for 60 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,7n,65p,1160b,234s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi
+1000.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1000.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1200.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ectt1000.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\matig\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\matig\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\matig\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\matig\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\matig\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/matig/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/User
+s/matig/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+<C:/Users/matig/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r7.pfb><C:/Users/matig/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb>
+Output written on "Rapport projet matrice vecteur ALI-MOUSSA Naim.pdf" (10 page
+s, 266600 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 359 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
